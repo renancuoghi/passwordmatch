@@ -31,7 +31,7 @@ public class MatchPasswordService {
 		this.score = this.msnlu.generateScore();
 		Match match = new Match();
 		match.setScore(this.score);
-		match.setComplexity(Complexity.GOOD);
+		match.setComplexity(Complexity.getComplexityByScore(this.score));
 		
 		return match;
 		
@@ -54,6 +54,7 @@ public class MatchPasswordService {
 		
 	}
 	
+
 	
 	
 	public void setMinPasswordLength(Integer length){

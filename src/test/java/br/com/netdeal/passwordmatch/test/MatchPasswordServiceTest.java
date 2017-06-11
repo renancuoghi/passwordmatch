@@ -5,7 +5,7 @@ import junit.framework.TestCase;
 
 import org.junit.Test;
 
-
+import br.com.netdeal.passwordmatch.model.Complexity;
 import br.com.netdeal.passwordmatch.model.Match;
 import br.com.netdeal.passwordmatch.service.MatchPasswordService;
 
@@ -13,7 +13,7 @@ import br.com.netdeal.passwordmatch.service.MatchPasswordService;
 public class MatchPasswordServiceTest extends TestCase{
 
 	private MatchPasswordService service;
-	private Boolean debugAtivo = true;
+	private Boolean debugAtivo = false;
 	@Override
     protected void setUp() throws Exception
     {
@@ -122,7 +122,6 @@ public class MatchPasswordServiceTest extends TestCase{
 		System.out.println("Score: " + m.getScore());
 		System.out.println("------------------------------------------");
 		assertTrue(m.getScore() == 3);
-		
 	}
 	
 	@Test
@@ -149,4 +148,17 @@ public class MatchPasswordServiceTest extends TestCase{
 		assertTrue(m.getScore() == 30);
 		
 	}
+	
+	@Test
+	public void testComplextLongPass() {
+		System.out.println("testComplextLongPass");
+
+		Match m = this.service.matchPassword("aaad@asd@$$#14LXoplvcxxz",true);
+		
+		System.out.println("Score: " + m.getScore());
+		System.out.println("------------------------------------------");
+		assertTrue(m.getScore() == 100);
+		
+	}
+	
 }

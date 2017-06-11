@@ -1,0 +1,42 @@
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+    <title>NETDEALS - PASSWORD MATCH</title>
+    
+	<link rel="stylesheet" href="css/bootstrap.min.css"/>	
+	<link rel="stylesheet" href="css/bootstrap-theme.min.css"/>
+</head>
+<body ng-app="AppPasswordMatch">
+    <div class="container" ng-controller="MatchController">
+        <div class="row">
+        	<div class="col-lg-12">
+        		<h1>Password Match - Test your password</h1>
+        	</div>        	        	        	
+        </div>
+        <div class="row">
+        	<div class="col-lg-4">
+        		<label>Password:</label>
+        		<input type="{{data.hide == true ? 'password' : 'text'}}" ng-model="data.password" class="form-control" ng-keyup="match()"/>
+        	</div>
+        	<div class="col-lg-2">
+        		<label>Hide:</label><br/>
+        		<input type="checkbox" ng-model="data.hide"/>
+        	</div>        	        	        	        	        	
+        </div>
+        <div class="row" ng-show="scoreResult">
+        	<div class="col-lg-2">
+        		<label>Score:</label>
+        		<span class="label label-{{getLabelColor()}}">{{scoreResult.score}}%</span>
+        	</div>
+        	<div class="col-lg-3">
+        		<label>Complexity:</label>
+        		<span class="label label-{{getLabelColor()}}">{{scoreResult.complexity.replace("_"," ")}}</span>
+        	</div>        	
+        </div>
+    </div>
+   
+   <script src="js/angular.min.js"></script>
+   <script src="js/app/passwordMatch.js"></script>
+
+</body>
+</html>
