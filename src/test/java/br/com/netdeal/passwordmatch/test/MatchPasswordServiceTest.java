@@ -1,11 +1,11 @@
 package br.com.netdeal.passwordmatch.test;
 
-import static org.junit.Assert.*;
+
 import junit.framework.TestCase;
 
 import org.junit.Test;
 
-import br.com.netdeal.passwordmatch.model.Complexity;
+
 import br.com.netdeal.passwordmatch.model.Match;
 import br.com.netdeal.passwordmatch.service.MatchPasswordService;
 

@@ -10,29 +10,32 @@
     <div class="container" ng-controller="MatchController">
         <div class="row">
         	<div class="col-lg-12">
-        		<h1>Password Match - Test your password</h1>
+        		<div class="panel panel-default">
+					  <div class="panel-heading">Avaliador de segurança de senha</div>
+					  <div class="panel-body">
+					    	<div class="row">
+					        	<div class="col-lg-4">
+					        		<label>Senha:</label>
+					        		<input type="{{data.hide == true ? 'password' : 'text'}}" placeholder="Senha" ng-model="data.password" class="form-control" ng-keyup="match()"/>
+					        	</div>
+					        	<div class="col-lg-2">
+					        		<label>Esconder Senha:</label><br/>
+					        		<input type="checkbox" ng-model="data.hide"/>
+					        	</div>        	        	        	        	        	
+					        </div>
+					        <div class="row" ng-show="scoreResult">
+					        	<div class="col-lg-3">
+					        		<label>Score:</label>
+					        		<span class="label label-{{getLabelColor()}}">{{scoreResult.score}}%</span>
+					        		<span class="label label-{{getLabelColor()}}">{{scoreResult.complexity.replace("_"," ")}}</span>
+					        	</div>
+					        	
+					        </div>
+					  </div>
+				</div>
         	</div>        	        	        	
         </div>
-        <div class="row">
-        	<div class="col-lg-4">
-        		<label>Password:</label>
-        		<input type="{{data.hide == true ? 'password' : 'text'}}" ng-model="data.password" class="form-control" ng-keyup="match()"/>
-        	</div>
-        	<div class="col-lg-2">
-        		<label>Hide:</label><br/>
-        		<input type="checkbox" ng-model="data.hide"/>
-        	</div>        	        	        	        	        	
-        </div>
-        <div class="row" ng-show="scoreResult">
-        	<div class="col-lg-2">
-        		<label>Score:</label>
-        		<span class="label label-{{getLabelColor()}}">{{scoreResult.score}}%</span>
-        	</div>
-        	<div class="col-lg-3">
-        		<label>Complexity:</label>
-        		<span class="label label-{{getLabelColor()}}">{{scoreResult.complexity.replace("_"," ")}}</span>
-        	</div>        	
-        </div>
+                              
     </div>
    
    <script src="js/angular.min.js"></script>

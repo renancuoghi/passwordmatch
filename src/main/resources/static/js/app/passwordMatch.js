@@ -18,9 +18,9 @@ app.controller('MatchController', ['$scope','$http', function($scope,$http) {
 	   
 	   if($scope.scoreResult){
 		   var complexity = $scope.scoreResult.complexity;
-		   if(complexity == "STRONG" || complexity == "VERY_STRONG"){
+		   if(complexity == "FORTE" || complexity == "MUITO_FORTE"){
 			   return "success";
-		   }else if(complexity == "GOOD"){
+		   }else if(complexity == "BOA"){
 			   return "warning";
 		   }else{
 			   return "danger";

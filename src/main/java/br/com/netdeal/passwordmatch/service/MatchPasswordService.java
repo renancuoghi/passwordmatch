@@ -4,7 +4,7 @@ import org.springframework.stereotype.Service;
 
 import br.com.netdeal.passwordmatch.model.Complexity;
 import br.com.netdeal.passwordmatch.model.Match;
-import br.com.netdeal.passwordmatch.service.helper.MatchSymbolNumericLowerUpperCase;
+import br.com.netdeal.passwordmatch.service.helper.DefaultPasswordMatch;
 
 @Service
 public class MatchPasswordService {
@@ -14,19 +14,13 @@ public class MatchPasswordService {
 	
 	
 	
-	
-
-	
-	
-	
-	
-	private MatchSymbolNumericLowerUpperCase msnlu;	
+	private DefaultPasswordMatch msnlu;	
 	
 	public Match matchPassword(String password){
 		
 		this.password = password;
 		
-		this.msnlu = new MatchSymbolNumericLowerUpperCase(this.password);		
+		this.msnlu = new DefaultPasswordMatch(this.password);		
 		this.msnlu.setMinPasswordLength(this.minPasswordLength);
 		this.score = this.msnlu.generateScore();
 		Match match = new Match();
@@ -42,13 +36,13 @@ public class MatchPasswordService {
 		
 		this.password = password;
 		
-		this.msnlu = new MatchSymbolNumericLowerUpperCase(this.password);
+		this.msnlu = new DefaultPasswordMatch(this.password);
 		this.msnlu.isDebug(debug);
 		this.msnlu.setMinPasswordLength(this.minPasswordLength);
 		this.score = this.msnlu.generateScore();
 		Match match = new Match();
 		match.setScore(this.score);
-		match.setComplexity(Complexity.GOOD);
+		match.setComplexity(Complexity.getComplexityByScore(this.score));
 		
 		return match;
 		

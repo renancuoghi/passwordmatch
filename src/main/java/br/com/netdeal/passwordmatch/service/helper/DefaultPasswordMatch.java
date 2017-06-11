@@ -1,6 +1,6 @@
 package br.com.netdeal.passwordmatch.service.helper;
 
-public class MatchSymbolNumericLowerUpperCase {
+public class DefaultPasswordMatch {
 
 	private Boolean debug = false;
 	private String password;
@@ -59,7 +59,7 @@ public class MatchSymbolNumericLowerUpperCase {
 	private final Integer MULT_SYMBOL = 6;
 	private final Integer MULT_CHAR = 2;
 	
-	public MatchSymbolNumericLowerUpperCase(String password){
+	public DefaultPasswordMatch(String password){
 		this.password = password;	
 	}
 	

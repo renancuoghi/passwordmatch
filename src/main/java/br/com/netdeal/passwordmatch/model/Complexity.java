@@ -1,19 +1,19 @@
 package br.com.netdeal.passwordmatch.model;
 
 public enum Complexity {
-	TOO_SHORT,VERY_WEAK,WEAK,GOOD,STRONG,VERY_STRONG;
+	MUITO_CURTO,MUITO_FRACO,FRACO,BOA,FORTE,MUITO_FORTE;
 	
 	public static Complexity getComplexityByScore(Integer score){
 		if(score >= 80){
-			return VERY_STRONG;
+			return MUITO_FORTE;
 		}else if(score >= 60 && score < 80){
-			return STRONG;
+			return FORTE;
 		}else if(score >= 40 && score < 60){
-			return GOOD;
+			return BOA;
 		}else if(score >= 20 && score < 40){
-			return WEAK;
+			return FRACO;
 		}else{
-			return VERY_WEAK;
+			return MUITO_FRACO;
 		}
 	}
 }
